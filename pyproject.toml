@@ -1,19 +1,54 @@
-[tool.poetry]
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
 name = "pybeli"
 version = "0.1.0"
-description = "Technical analysis for stocks and crypto"
-authors = []
+description = "A CLI tool for analyzing stock and crypto tickers using technical analysis indicators."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "Beerware" }
+authors = [
+    { name = "Ernest Duckworth IV", email = "rionduckworth@gmail.com" },
+]
+keywords = ["cli", "stocks", "crypto", "technical-analysis", "trading"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "click>=8.0",
+]
 
-[tool.poetry.dependencies]
-python = ">=3.8,<4.0"
+[project.urls]
+Homepage = "https://github.com/ernman37/pibeli"
+Repository = "https://github.com/ernman37/pibeli"
+Issues = "https://github.com/ernman37/pibeli/issues"
 
-[tool.poetry.dev-dependencies]
-pytest = "*"
-pytest-cov = "*"
-ruff = "*"
-mypy = "*"
-uv = "*"
+[project.scripts]
+pybeli = "pybeli.cli.main:main"
 
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+[dependency-groups]
+dev = [
+    "mypy>=1.0",
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.4",
+    "pre-commit>=3.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pybeli"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short --cov=src/pybeli --cov-report=term-missing --cov-fail-under=80"
+
+[tool.mypy]
+strict = true
+python_version = "3.12"
+files = ["src"]
