@@ -3,10 +3,10 @@ __pycache__/
 .env
 *.env
 .cache/
-.poetry/
 .mypy_cache/
 .pytest_cache/
 dist/
 build/
 .coverage
 htmlcov/
+src/pybeli.egg-info/
