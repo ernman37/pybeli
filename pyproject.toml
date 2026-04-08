@@ -5,12 +5,29 @@ build-backend = "hatchling.build"
 [project]
 name = "pybeli"
 version = "0.1.0"
-description = "A simple CLI tool"
+description = "A CLI tool for analyzing stock and crypto tickers using technical analysis indicators."
 readme = "README.md"
 requires-python = ">=3.12"
+license = { text = "Beerware" }
+authors = [
+    { name = "Ernest Duckworth IV", email = "rionduckworth@gmail.com" },
+]
+keywords = ["cli", "stocks", "crypto", "technical-analysis", "trading"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+]
 dependencies = [
     "click>=8.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/ernman37/pibeli"
+Repository = "https://github.com/ernman37/pibeli"
+Issues = "https://github.com/ernman37/pibeli/issues"
 
 [project.scripts]
 pybeli = "pybeli.cli.main:main"
@@ -29,7 +46,7 @@ packages = ["src/pybeli"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-v --tb=short"
+addopts = "-v --tb=short --cov=src/pybeli --cov-report=term-missing --cov-fail-under=80"
 
 [tool.mypy]
 strict = true

@@ -1,12 +1,30 @@
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Environment
 .env
 *.env
+.venv/
+
+# Tool caches
 .cache/
 .mypy_cache/
 .pytest_cache/
+.ruff_cache/
+
+# Build artifacts
 dist/
 build/
-.coverage
-htmlcov/
 src/pybeli.egg-info/
+*.egg-info/
+
+# Coverage
+.coverage
+.coverage.*
+htmlcov/
+
+# macOS
+.DS_Store
