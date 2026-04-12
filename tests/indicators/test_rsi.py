@@ -3,11 +3,12 @@ from __future__ import annotations
 import math
 
 import pytest
-from utils import create_candle, create_datetime
 
+from pybeli.indicators.rsi import RSI
 from pybeli.models.candle import Candle
-from pybeli.models.rsi import RSI, RSIStrategy
 from pybeli.models.signal import Signal
+from pybeli.strategies.rsistrategy import RSIStrategy
+from tests.models.utils import create_candle, create_datetime
 
 
 def _candles_from_closes(
