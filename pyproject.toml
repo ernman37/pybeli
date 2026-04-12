@@ -22,7 +22,8 @@ classifiers = [
 ]
 dependencies = [
     "click>=8.0",
-    "pydantic>=2.12.5"
+    "pydantic>=2.12.5",
+    "yfinance>=1.2.1",
 ]
 
 [project.urls]
@@ -53,3 +54,7 @@ addopts = "-v --tb=short --cov=src/pybeli --cov-report=term-missing --cov-fail-u
 strict = true
 python_version = "3.12"
 files = ["src"]
+
+[[tool.mypy.overrides]]
+module = "yfinance.*"
+ignore_missing_imports = true
